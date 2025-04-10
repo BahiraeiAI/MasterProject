@@ -1,0 +1,131 @@
+﻿@model ICollection<ToDoModel>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Todo List Table</title>
+        <style>
+            .custom-table {
+                width: 100%;
+                border-collapse: separate; /* Use separate borders for rounded corners */
+                border-spacing: 0;
+                border-radius: 10px;
+                overflow: hidden; /* Ensures rounded corners are applied */
+                background-color: #f5f5f5;
+            }
+
+                .custom-table th,.custom-table td {
+                    padding: 10px;
+                    text-align: left;
+                    border: 1px solid #ddd;
+                }
+
+                .custom-table tbody tr {
+                    transition: background-color 0.3s ease, font-weight 0.3s ease;
+                }
+
+                    .custom-table tbody tr:hover {
+                        background-color: #e0e0e0; /* Highlight the row */
+                        font-weight: bold; /* Make text bold */
+                    }
+
+                 /* Basic table styling */
+                 table {
+                     width: 100%;
+                     border-collapse: collapse;
+                     margin-top: 20px;
+                     border-color: blue;
+                 }
+
+                 th,
+                 td {
+                     border: 1px solid #ccc;
+                     padding: 8px;
+                     text-align: left;
+                 }
+                     /* Setup widths using our unit system:
+            We assign 1 unit (12.5%) to each minor column,
+            and 3 units (37.5%) for the Description column. */
+                     th:not(.desc),
+                     td:not(.desc) {
+                         width: 12.5%;
+                     }
+
+                     th.desc,
+                     td.desc {
+                         width: 37.5%;
+                     }
+                 /* Optional: using CSS to ensure the text stays on one line with ellipsis */
+                 .desc {
+                     white-space: nowrap;
+                     overflow: hidden;
+                     text-overflow: ellipsis;
+                 }
+        </style>
+    </head>
+    <body>
+        
+        <h2>My Todo List</h2>
+        <table class="custom-table>
+            <thead>
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Due Datetime</th>
+                    <th class="text-center">Remaining Time</th>
+                    <th class="text-center">Details</th>
+                </tr>
+            </thead>
+            <tbody id="todoBody">
+                <!-- Sample row. In a real app, you would generate rows dynamically -->
+                @foreach (ToDoModel? item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item?.Title</td>
+                        <!--
+              For the description cell, you can either store the complete text in a data attribute or have it in the element.
+              The script below checks for a data attribute "data-full" to preserve the full description.
+            -->
+                        <td class="desc" >@item.Description</td>
+                        <td class="text-center">pending</td>
+                        <td class="text-center">@item?.DueTime</td>
+                        <td class="text-center">@item?.RemainingTimeSpan</td>
+                        <td class="text-center"><button onclick="viewDetails(this)">View Details</button></td>
+                    </tr>
+
+                }
+
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <script>// This function iterates over each row and truncates the description after 50 characters.
+    function truncateDescriptions() {
+      const rows = document.querySelectorAll('#todoBody tr');
+      rows.forEach(row => {
+        const descCell = row.querySelector('.desc');
+        if (descCell) {
+          // Retrieve the full description either from a data attribute or the text content.
+          const fullText = descCell.getAttribute('data-full') || descCell.innerText;
+          // Only truncate if longer than 50 characters.
+          const truncatedText = fullText.length > 50 ? fullText.slice(0, 50) + '...' : fullText;
+          descCell.innerText = truncatedText;
+        }
+      });
+    }
+
+    // Simple function to handle clicking "View Details".
+    // In a real application, you might open a modal or navigate to a detailed page.
+    function viewDetails(button) {
+      const row = button.closest('tr');
+      const title = row.cells[0].innerText;
+      alert("Showing details for: " + title);
+    }
+
+    // Run the truncation once the window loads.
+    window.addEventListener('load', truncateDescriptions);</script>
+    </body>
+</html>
+

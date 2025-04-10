@@ -1,0 +1,48 @@
+﻿<Properties StartupConfiguration="{187161C7-05B4-46BC-9241-5A453E6D0062}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MasterProject PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Account/Dashboard.cshtml">
+    <Files>
+      <File FileName="Controllers/AccountController.cs" />
+      <File FileName="Views/Account/AddToDo.cshtml" />
+      <File FileName="ViewModels/AddToDoViewModel.cs" />
+      <File FileName="Views/Account/Dashboard.cshtml" Line="87" Column="9" />
+      <File FileName="Views/Account/Login.cshtml" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Data/Seed.cs" />
+      <File FileName="Models/ImageModel.cs" />
+      <File FileName="Models/ToDoModel.cs" />
+      <File FileName="Models/AppUser.cs" />
+      <File FileName="ViewModels/ErrorViewModel.cs" />
+      <File FileName="ViewModels/LoginViewModel.cs" />
+      <File FileName="ViewModels/RegisterViewModel.cs" />
+      <File FileName="Data/ConnectionStrings.cs" />
+      <File FileName="Data/Roles.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MasterProject" expanded="True">
+            <Node name="MasterProject" expanded="True" selected="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

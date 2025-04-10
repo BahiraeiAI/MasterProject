@@ -1,0 +1,39 @@
+﻿@model AddToDoViewModel;
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4>AddToDo</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <form asp-controller="Account" asp-action="AddToDo">
+                            <span class="text-danger">@ViewData["State"]</span>
+                            <div class="mb-3">
+                                <label asp-for="Title" class="form-label">ToDo Title</label>
+                                <input asp-for="Title" type="text" class="form-control" id="email" placeholder="Enter the title" value="@Model?.Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Description" class="form-label">Description</label>
+                                <textarea asp-for="Description" type="text" class="form-control" id="password" placeholder="Enter the  description" value="@Model?.Description"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="DueTime" class="form-label">Password</label>
+                                <input asp-for="DueTime" type="datetime-local" class="form-control" id="password" placeholder="Time" value="@Model?.DueTime">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
